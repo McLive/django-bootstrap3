@@ -7,24 +7,24 @@
         </li>
 
         {% if pages_back %}
-            <li>
+            <li class="page-item">
                 <a href="{{ bootstrap_pagination_url }}{{ parameter_name }}={{ pages_back }}">&hellip;</a>
             </li>
         {% endif %}
 
         {% for p in pages_shown %}
-            <li{% if current_page == p %} class="active"{% endif %}>
+            <li class="page-item {% if current_page == p %} active{% endif %}">
                 <a href="{% if current_page == p %}#{% else %}{{ bootstrap_pagination_url }}{{ parameter_name }}={{ p }}{% endif %}">{{ p }}</a>
             </li>
         {% endfor %}
 
         {% if pages_forward %}
-            <li>
+            <li class="page-item">
                 <a href="{{ bootstrap_pagination_url }}{{ parameter_name }}={{ pages_forward }}">&hellip;</a>
             </li>
         {% endif %}
 
-        <li class="last{% if current_page == num_pages %} disabled{% endif %}">
+        <li class="page-item last{% if current_page == num_pages %} disabled{% endif %}">
             <a href="{% if current_page == num_pages %}#{% else %}{{ bootstrap_pagination_url }}{{ parameter_name }}={{ num_pages }}{% endif %}">&raquo;</a>
         </li>
 
